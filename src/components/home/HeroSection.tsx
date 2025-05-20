@@ -17,11 +17,10 @@ const HeroSection = () => {
           loop
           playsInline
           preload="auto"
-          poster="/images/logo.png"
         >
           <source 
-            src="/videos/hero.mp4" 
-            type="video/mp4"
+            src="/hero.mp4" 
+            // type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
