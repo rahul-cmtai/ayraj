@@ -33,5 +33,4 @@ yarn-error.log*
 *.sln
 *.sw?
 
-# Large media files
-public/videos/hero.mp4
+
