@@ -33,7 +33,7 @@ const Navigation = () => {
               src="/images/logo.png"
               alt="Ayraj Logo"
               className={cn(
-                'h-14 w-auto transition-all duration-300',
+                'h-20 w-auto transition-all duration-300',
                 isScrolled ? '' : ''
               )}
             />

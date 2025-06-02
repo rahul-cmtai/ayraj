@@ -5,6 +5,13 @@ import { ArrowRight } from 'lucide-react';
 import servicesData from '@/data/servicesData';
 
 const ServiceOverview = () => {
+  // Function to truncate description to 10 words
+  const truncateDescription = (description: string) => {
+    const words = description.split(' ');
+    if (words.length <= 10) return description;
+    return words.slice(0, 10).join(' ') + '...';
+  };
+
   return (
     <section className="py-20 bg-cream-light">
       <div className="container mx-auto px-4">
@@ -25,7 +32,7 @@ const ServiceOverview = () => {
                 <h3 className="text-xl font-playfair font-medium text-white mb-2">
                   {service.title}
                 </h3>
-                <p className="text-cream/90 mb-4">{service.description}</p>
+                <p className="text-cream/90 mb-4">{truncateDescription(service.description)}</p>
                 <Link
                   to={`/services/${service.slug}`}
                   className="inline-flex items-center text-gold hover:text-gold-light transition-colors"

@@ -24,6 +24,13 @@ const ServiceDetail = ({ service }: ServiceDetailProps) => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Function to truncate description to 10 words
+  const truncateDescription = (description: string) => {
+    const words = description.split(' ');
+    if (words.length <= 10) return description;
+    return words.slice(0, 10).join(' ') + '...';
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -49,7 +56,7 @@ const ServiceDetail = ({ service }: ServiceDetailProps) => {
               {service.title}
             </h1>
             <p className="text-xl text-cream/90 max-w-2xl">
-              {service.description}
+              {truncateDescription(service.description)}
             </p>
           </div>
         </section>
@@ -60,9 +67,9 @@ const ServiceDetail = ({ service }: ServiceDetailProps) => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-playfair text-olive mb-6">{service.title}</h2>
-                <p className="text-muted-foreground mb-8">{service.description}</p>
+                <p className="text-muted-foreground mb-8 text-justify">{service.description}</p>
                 
-                <div className="mb-8">
+                {/* <div className="mb-8">
                   <h3 className="text-xl font-medium text-olive mb-4 flex items-center">
                     <CheckCircle className="mr-2 h-5 w-5 text-gold" /> Benefits
                   </h3>
@@ -74,7 +81,7 @@ const ServiceDetail = ({ service }: ServiceDetailProps) => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div> */}
                 
                 <div className="mb-8">
                   <h3 className="text-xl font-medium text-olive mb-4 flex items-center">
