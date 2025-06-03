@@ -3,50 +3,94 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const projects = [
-  {
-    id: 1,
-    title: 'Luxury Villa Renovation',
-    category: 'Flooring',
-    image: 'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=2574&auto=format&fit=crop',
-    type: 'image'
-  },
-  {
-    id: 2,
-    title: 'Modern Apartment Design',
-    category: 'Furniture',
-    image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?q=80&w=2574&auto=format&fit=crop',
-    type: 'image'
-  },
-  {
-    id: 3,
-    title: 'Classic Home Makeover',
-    category: 'Walls',
-    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=2574&auto=format&fit=crop',
-    type: 'image'
-  },
-  {
-    id: 4,
-    title: 'Corporate Office Interiors',
-    category: 'Decor',
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2670&auto=format&fit=crop',
-    type: 'image'
-  },
-  {
-    id: 5,
-    title: 'Boutique Hotel Suite',
-    category: 'Flooring',
-    image: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?q=80&w=1974&auto=format&fit=crop',
-    type: 'image'
-  },
-  {
-    id: 6,
-    title: 'Restaurant Interior Design',
-    category: 'Furniture',
-    image: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=2564&auto=format&fit=crop',
-    type: 'image'
-  }
+// --- CATEGORY AND IMAGE IMPORTS ---
+const galleryCategories = [
+  { key: 'Wallpapers', folder: 'Wallpapers' },
+  { key: 'F-doors', folder: 'Furniture-doors' },
+  { key: 'Carpets', folder: 'Carpets' },
+  { key: 'F-consoles', folder: 'Furniture-consoles' },
+  { key: 'F-sofas', folder: 'Furniture-sofas' },
+  { key: 'Dinnerware', folder: 'Dinnerware & Tableware' },
+  { key: 'F-kitchen', folder: 'Furniture-kitchen' },
+  { key: 'Wooden', folder: 'Wooden flooring' },
+  { key: 'Tiles', folder: 'Tiles' }
 ];
+
+// Images for each category (first 6 only)
+const galleryImages = {
+  'Wallpapers': [
+    '/images/Wallpapers/IMG_7907.JPG',
+    '/images/Wallpapers/IMG_5733.jpg',
+    '/images/Wallpapers/IMG_5732.jpg',
+    '/images/Wallpapers/IMG_5731.jpg',
+    '/images/Wallpapers/IMG_5730.jpg',
+    '/images/Wallpapers/IMG_5729.jpg',
+  ],
+  'F-doors': [
+    '/images/Furniture-doors/IMG_8395.JPG',
+    '/images/Furniture-doors/IMG_8394.JPG',
+    '/images/Furniture-doors/IMG_8393.JPG',
+    '/images/Furniture-doors/IMG_8392.JPG',
+    '/images/Furniture-doors/IMG_8391.JPG',
+    '/images/Furniture-doors/IMG_8307.JPG',
+  ],
+  'Carpets': [
+    '/images/Carpets/IMG_6807.JPG',
+    '/images/Carpets/IMG_5125.JPG',
+    '/images/Carpets/5eff7b7d-1ca0-474e-bd9c-7e9dd2788095.JPG',
+    '/images/Carpets/41f4d41a-95ad-475b-8cde-4d957bd9c231.JPG',
+    '/images/Carpets/2e79f3a6-e595-4f38-a17e-3f130e6b3b3b.JPG',
+    '/images/Carpets/271c8130-8046-4c68-b79f-37edf746b3b1.JPG',
+  ],
+  'F-consoles': [
+    '/images/Furniture-consoles/IMG_8386.JPG',
+    '/images/Furniture-consoles/IMG_8396.JPG',
+    '/images/Furniture-consoles/IMG_8390.JPG',
+    '/images/Furniture-consoles/IMG_8389.JPG',
+    '/images/Furniture-consoles/IMG_8388.JPG',
+    '/images/Furniture-consoles/IMG_8387.JPG',
+  ],
+  'F-sofas': [
+    '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42.JPG',
+    '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42 4.JPG',
+    '/images/Furniture-sofas/IMG_8385.JPG',
+    '/images/Furniture-sofas/IMG_8383.JPG',
+    '/images/Furniture-sofas/IMG_8382.JPG',
+    '/images/Furniture-sofas/IMG_8377.JPG',
+  ],
+  'Dinnerware': [
+    '/images/Dinnerware & Tableware/IMG_5978.jpg',
+    '/images/Dinnerware & Tableware/IMG_5977.jpg',
+    '/images/Dinnerware & Tableware/IMG_5975.jpg',
+    '/images/Dinnerware & Tableware/IMG_5973.jpg',
+    '/images/Dinnerware & Tableware/IMG_5972.jpg',
+    '/images/Dinnerware & Tableware/IMG_5970.jpg',
+  ],
+  'F-kitchen': [
+    '/images/Furniture-kitchen/PHOTO-2025-04-17-15-38-42 3.JPG',
+    '/images/Furniture-kitchen/PHOTO-2025-04-17-15-38-41.JPG',
+    '/images/Furniture-kitchen/IMG_8376.JPG',
+    '/images/Furniture-kitchen/IMG_8375.JPG',
+    '/images/Furniture-kitchen/IMG_8374.JPG',
+    '/images/Furniture-kitchen/IMG_8373.JPG',
+  ],
+  'Wooden': [
+    '/images/Wooden flooring/IMG_6397.JPG',
+    '/images/Wooden flooring/IMG_6396.JPG',
+    '/images/Wooden flooring/IMG_5818.JPG',
+    '/images/Wooden flooring/IMG_5815.JPG',
+    '/images/Wooden flooring/IMG_5071.JPG',
+    '/images/Wooden flooring/IMG_2169.JPG',
+  ],
+  'Tiles': [
+    '/images/Tiles/PHOTO-2025-04-19-15-22-18.jpg',
+    '/images/Tiles/PHOTO-2025-04-19-15-22-18 8.JPG',
+    '/images/Tiles/PHOTO-2025-04-19-15-22-18 7.JPG',
+    '/images/Tiles/PHOTO-2025-04-19-15-22-18 6.JPG',
+    '/images/Tiles/PHOTO-2025-04-19-15-22-18 5.JPG',
+    '/images/Tiles/PHOTO-2025-04-19-15-22-18 4.jpg',
+  ]
+};
 
 const myWorkProjects = [
   {
@@ -128,15 +172,18 @@ const myWorkProjects = [
   }
 ];
 
-const categories = ['All', 'Flooring', 'Furniture', 'Walls', 'Decor'];
-
 const PortfolioPreview = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-  
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : projects.filter(project => project.category === activeCategory);
-  
+  const [activeCategory, setActiveCategory] = useState(galleryCategories[0].key);
+
+  const filteredProjects = galleryImages[activeCategory]
+    ? galleryImages[activeCategory].map((img, idx) => ({
+        id: `${activeCategory}-${idx}`,
+        title: `${activeCategory.replace(/-/g, ' ')} #${idx + 1}`,
+        category: activeCategory,
+        image: img
+      }))
+    : [];
+
   return (
     <section className="py-20 bg-gradient-cream">
       <div className="container mx-auto px-4">
@@ -144,7 +191,6 @@ const PortfolioPreview = () => {
           <h2 className="section-title">Our Portfolio</h2>
           <p className="section-subtitle">Explore Our Recent Projects</p>
         </div>
-        
         {/* Tabs */}
         <div className="mb-12">
           <Tabs defaultValue="portfolio" className="w-full">
@@ -152,29 +198,27 @@ const PortfolioPreview = () => {
               <TabsTrigger value="portfolio" className="text-base px-6 py-3">Portfolio</TabsTrigger>
               <TabsTrigger value="mywork" className="text-base px-6 py-3">My Work</TabsTrigger>
             </TabsList>
-            
             {/* Portfolio Tab Content */}
             <TabsContent value="portfolio">
               {/* Categories */}
               <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {categories.map(category => (
+                {galleryCategories.map(cat => (
                   <button
-                    key={category}
-                    onClick={() => setActiveCategory(category)}
+                    key={cat.key}
+                    onClick={() => setActiveCategory(cat.key)}
                     className={`px-6 py-2 rounded-md transition-colors ${
-                      activeCategory === category
+                      activeCategory === cat.key
                         ? 'bg-olive text-white'
                         : 'bg-white text-olive hover:bg-olive/10'
                     }`}
                   >
-                    {category}
+                    {cat.key}
                   </button>
                 ))}
               </div>
-              
               {/* Projects Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProjects.map(project => (
+                {filteredProjects.slice(0, 6).map(project => (
                   <div key={project.id} className="gallery-item">
                     <img
                       src={project.image}
@@ -193,7 +237,6 @@ const PortfolioPreview = () => {
                 ))}
               </div>
             </TabsContent>
-            
             {/* My Work Tab Content */}
             <TabsContent value="mywork">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

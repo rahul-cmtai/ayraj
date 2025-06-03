@@ -5,14 +5,15 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const unsplashImages = [
   // Modern luxury living room with gold accents
-  'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80',
+  '/images/hero/1.jpg',
   // Minimalist luxury bedroom
-  'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80',
+  '/images/hero/2.jpg',
   // High-end kitchen interior
-  'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80',
-  // Elegant designer workspace
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=1200&q=80',
+  '/images/hero/3.jpg',
+  // Elegant designer workspace (corrected image)
+  '/images/hero/4.jpg', // Local image for the elegant designer workspace
 ];
+
 
 const HeroSection = () => {
   const isMobile = useIsMobile();

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -21,7 +20,7 @@ const Services = () => {
         <section className="relative h-[50vh] flex items-center">
           <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=2574&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1617104424032-b9bd6972d0e4?q=80&w=1992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Interior Services"
               className="w-full h-full object-cover"
             />
@@ -58,7 +57,9 @@ const Services = () => {
                     <h3 className="text-xl font-playfair font-medium text-white mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-cream/90 mb-4">{service.description}</p>
+                    <p className="text-cream/90 mb-4">
+                      {service.description.split(' ').slice(0, 10).join(' ')}{service.description.split(' ').length > 10 ? '...' : ''}
+                    </p>
                     <Link
                       to={`/services/${service.slug}`}
                       className="inline-flex items-center text-gold hover:text-gold-light transition-colors"
