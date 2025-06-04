@@ -274,11 +274,20 @@ const Gallery = () => {
             {/* Gallery Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {displayedGallery.map(item => (
-                <div key={item.id} className="gallery-item group relative overflow-hidden">
+                <div 
+                  key={item.id} 
+                  className={`gallery-item group relative overflow-hidden ${
+                    item.id.startsWith('F-doors') ? 'md:col-span-1 lg:col-span-1' : ''
+                  }`}
+                >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-110"
+                    className={`w-full object-contain transition-transform duration-300 group-hover:scale-110 ${
+                      item.id.startsWith('F-doors') 
+                        ? 'h-[500px]' // Taller height for doors
+                        : 'h-80' // Normal height for other items
+                    }`}
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                     <h3 className="text-white font-playfair text-xl font-medium">

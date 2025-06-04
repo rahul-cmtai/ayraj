@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion, AnimatePresence } from 'framer-motion';
 
 // --- CATEGORY AND IMAGE IMPORTS ---
 const galleryCategories = [
@@ -184,12 +185,49 @@ const PortfolioPreview = () => {
       }))
     : [];
 
+  // Animation variants
+  const titleVariants = {
+    hidden: { opacity: 0, y: 40, filter: "blur(8px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.6,0.01,0.05,0.95] } }
+  };
+  const subtitleVariants = {
+    hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, delay: 0.2, ease: [0.6,0.01,0.05,0.95] } }
+  };
+  const buttonVariants = {
+    rest: { scale: 1 },
+    hover: { scale: 1.08, boxShadow: "0 4px 20px rgba(212,175,55,0.15)", transition: { type: "spring", stiffness: 400, damping: 15 } },
+    active: { scale: 0.97 }
+  };
+  const galleryItemVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: (i) => ({ opacity: 1, y: 0, scale: 1, transition: { delay: 0.1 * i, duration: 0.7, type: "spring", stiffness: 80 } })
+  };
+
   return (
     <section className="py-20 bg-gradient-cream">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="section-title">Our Portfolio</h2>
-          <p className="section-subtitle">Explore Our Recent Projects</p>
+          <motion.h2
+            className="section-title"
+            variants={titleVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.7 }}
+            style={{ textShadow: "0 4px 16px rgba(0,0,0,0.08)" }}
+          >
+            Our Portfolio
+          </motion.h2>
+          <motion.p
+            className="section-subtitle"
+            variants={subtitleVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.7 }}
+            style={{ textShadow: "0 2px 8px rgba(212,175,55,0.08)" }}
+          >
+            Explore Our Recent Projects
+          </motion.p>
         </div>
         {/* Tabs */}
         <div className="mb-12">
@@ -201,67 +239,112 @@ const PortfolioPreview = () => {
             {/* Portfolio Tab Content */}
             <TabsContent value="portfolio">
               {/* Categories */}
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
+              <div className="flex flex-wrap justify-center gap-2 mb-12">
                 {galleryCategories.map(cat => (
-                  <button
+                  <motion.button
                     key={cat.key}
                     onClick={() => setActiveCategory(cat.key)}
-                    className={`px-6 py-2 rounded-md transition-colors ${
+                    className={`flex-grow text-center px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-gold/40 ${
                       activeCategory === cat.key
-                        ? 'bg-olive text-white'
+                        ? 'bg-olive text-white shadow-lg'
                         : 'bg-white text-olive hover:bg-olive/10'
-                    }`}
+                    } w-1/3 max-w-[calc(33.33%-8px)] md:w-auto md:max-w-none`}
+                    variants={buttonVariants}
+                    initial="rest"
+                    whileHover="hover"
+                    whileTap="active"
                   >
                     {cat.key}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
               {/* Projects Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProjects.slice(0, 6).map(project => (
-                  <div key={project.id} className="gallery-item">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-80 object-cover"
-                    />
-                    <div className="gallery-overlay">
-                      <h3 className="text-white font-playfair text-xl font-medium">
-                        {project.title}
-                      </h3>
-                      <p className="text-cream/80 text-sm">
-                        {project.category}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                <AnimatePresence>
+                  {filteredProjects.slice(0, 6).map((project, i) => (
+                    <motion.div
+                      key={project.id}
+                      className="gallery-item relative overflow-hidden rounded-xl shadow-lg group bg-white"
+                      custom={i}
+                      variants={galleryItemVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(212,175,55,0.18)" }}
+                      transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                    >
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                        initial={{ scale: 1.1, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.1 * i, ease: [0.6,0.01,0.05,0.95] }}
+                      />
+                      <motion.div
+                        className="gallery-overlay absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        <h3 className="text-white font-playfair text-xl font-medium drop-shadow-lg">
+                          {project.title}
+                        </h3>
+                        <p className="text-cream/80 text-sm drop-shadow">
+                          {project.category}
+                        </p>
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </div>
             </TabsContent>
             {/* My Work Tab Content */}
             <TabsContent value="mywork">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {myWorkProjects.map(project => (
-                  <div key={project.id} className="gallery-item">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-80 object-cover"
-                    />
-                    <div className="gallery-overlay">
-                      <h3 className="text-white font-playfair text-xl font-medium">
-                        {project.title}
-                      </h3>
-                      <p className="text-cream/80 text-sm">
-                        {project.category}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                <AnimatePresence>
+                  {myWorkProjects.map((project, i) => (
+                    <motion.div
+                      key={project.id}
+                      className="gallery-item relative overflow-hidden rounded-xl shadow-lg group bg-white"
+                      custom={i}
+                      variants={galleryItemVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(212,175,55,0.18)" }}
+                      transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                    >
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                        initial={{ scale: 1.1, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.1 * i, ease: [0.6,0.01,0.05,0.95] }}
+                      />
+                      <motion.div
+                        className="gallery-overlay absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        <h3 className="text-white font-playfair text-xl font-medium drop-shadow-lg">
+                          {project.title}
+                        </h3>
+                        <p className="text-cream/80 text-sm drop-shadow">
+                          {project.category}
+                        </p>
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </div>
             </TabsContent>
           </Tabs>
         </div>
-        
         <div className="text-center mt-12">
           <Link to="/gallery" className="btn-primary inline-flex">
             View Full Gallery <ArrowRight size={18} />

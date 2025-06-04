@@ -76,7 +76,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="border-t border-cream/30 mt-10 pt-6 text-center">
-          <p>&copy; {new Date().getFullYear()} AYRAJ Royal Interiors. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} AYRAJ  Interiors. All rights reserved.</p>
         </div>
       </div>
     </footer>

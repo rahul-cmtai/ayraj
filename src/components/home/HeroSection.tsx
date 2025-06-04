@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const unsplashImages = [
   // Modern luxury living room with gold accents
-  '/images/hero/1.jpg',
+  'https://plus.unsplash.com/premium_photo-1668383208766-4ec393807317?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   // Minimalist luxury bedroom
-  '/images/hero/2.jpg',
+  '/images/hero/5.jpg',
   // High-end kitchen interior
-  '/images/hero/3.jpg',
+  '/images/hero/6.jpg',
   // Elegant designer workspace (corrected image)
-  '/images/hero/4.jpg', // Local image for the elegant designer workspace
+   '/images/hero/7.JPG', // Local image for the elegant designer workspace
 ];
 
 
@@ -28,19 +29,28 @@ const HeroSection = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Image Slider Background */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={unsplashImages[current]}
-          alt="Hero Slide"
-          className="object-cover w-full h-full transition-all duration-700"
-          draggable="false"
-          style={{ filter: 'brightness(0.7)' }} // subtle dark shadow effect
-        />
-        <div className="absolute inset-0 bg-black/40 z-10"></div> {/* slightly lighter overlay */}
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={current}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 1 }}
+            src={unsplashImages[current]}
+            alt="Hero Slide"
+            className="object-cover w-full h-full"
+            draggable="false"
+            style={{ filter: 'brightness(0.7)' }}
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
         {/* Dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
           {unsplashImages.map((_, idx) => (
-            <button
+            <motion.button
               key={idx}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setCurrent(idx)}
               className={`w-3 h-3 rounded-full ${current === idx ? 'bg-gold' : 'bg-white/50'} border border-white transition-all duration-300`}
               aria-label={`Go to slide ${idx + 1}`}
@@ -51,17 +61,43 @@ const HeroSection = () => {
       
       {/* Content */}
       <div className="container mx-auto px-4 z-20 text-center">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-white mb-6 animate-fade-in">
-          Luxury Begins with <span className="text-gold">AYRAJ</span>
-        </h1>
-        <p className="text-xl md:text-2xl font-playfair italic text-cream/90 mb-10 animate-fade-in" style={{ animationDelay: '300ms' }}>
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-white mb-6"
+        >
+          Luxury Begins with <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-gold"
+          >AYRAJ</motion.span>
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-xl md:text-2xl font-playfair italic text-cream/90 mb-10"
+        >
           Reimagine Your Space with Royal Designs
-        </p>
+        </motion.p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '600ms' }}>
-          <Link to="/services" className="btn-primary">
-            Explore Collection <ArrowRight size={isMobile ? 16 : 18} />
-          </Link>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-xs sm:max-w-none mx-auto"
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full sm:w-auto"
+          >
+            <Link to="/services" className="btn-primary w-full sm:w-auto flex items-center justify-center">
+              Explore Collection <ArrowRight size={isMobile ? 16 : 18} className="ml-2" />
+            </Link>
+          </motion.div>
           {/* <a 
             href="https://wa.me/919999979079" 
             target="_blank" 
@@ -73,7 +109,7 @@ const HeroSection = () => {
             </svg>
             WhatsApp Chat
           </a> */}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
