@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
@@ -20,6 +20,11 @@ interface ServiceDetailProps {
 }
 
 const ServiceDetail = ({ service }: ServiceDetailProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [sliderPosition, setSliderPosition] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const autoPlayDelay = 3000; // 3 seconds delay between slides
+
   useEffect(() => {
     window.scrollTo(0, 0);
     // Debug viewport width
@@ -102,6 +107,58 @@ const ServiceDetail = ({ service }: ServiceDetailProps) => {
     const words = description.split(' ');
     if (words.length <= 10) return description;
     return words.slice(0, 10).join(' ') + '...';
+  };
+
+  const nextImage = useCallback(() => {
+    if (service.galleryImages) {
+      setCurrentImageIndex(prev => (prev + 1) % (service.galleryImages.length - 1));
+      setSliderPosition(prev => {
+        const nextPos = prev - window.innerWidth;
+        // Reset position when reaching the end
+        return currentImageIndex === service.galleryImages.length - 2 ? 0 : nextPos;
+      });
+    }
+  }, [service.galleryImages, currentImageIndex]);
+
+  const prevImage = useCallback(() => {
+    if (service.galleryImages) {
+      setCurrentImageIndex(prev => 
+        prev === 0 
+          ? service.galleryImages.length - 2 
+          : prev - 1
+      );
+      setSliderPosition(prev => {
+        const nextPos = prev + window.innerWidth;
+        // Set position to end when going from first to last
+        return currentImageIndex === 0 ? -((service.galleryImages.length - 2) * window.innerWidth) : nextPos;
+      });
+    }
+  }, [service.galleryImages, currentImageIndex]);
+
+  // Auto-play functionality
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout;
+    
+    if (isPlaying && service.galleryImages && service.galleryImages.length > 1) {
+      intervalId = setInterval(() => {
+        nextImage();
+      }, autoPlayDelay);
+    }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [isPlaying, nextImage, service.galleryImages]);
+
+  const togglePlayPause = () => {
+    setIsPlaying(prev => !prev);
+  };
+
+  const goToImage = (index: number) => {
+    setCurrentImageIndex(index);
+    setSliderPosition(-index * window.innerWidth);
   };
 
   return (
@@ -195,7 +252,7 @@ const ServiceDetail = ({ service }: ServiceDetailProps) => {
                       <motion.span 
                         key={index} 
                         variants={itemVariants}
-                        className="px-3 py-1.5 md:px-4 md:py-2 bg-cream-light text-olive rounded-full text-sm font-medium border border-olive/10 hover:bg-olive hover:text-white transition-colors duration-300 cursor-default"
+                        className="px-3 py-1.5 md:px-4 md:py-2 bg-cream-light text-olive rounded-full text-sm font-medium border border-olive/10 cursor-default"
                       >
                         {material}
                       </motion.span>
@@ -245,91 +302,180 @@ const ServiceDetail = ({ service }: ServiceDetailProps) => {
               
               <motion.div 
                 variants={slideInRight}
-                className="grid grid-cols-2 gap-4 md:gap-6"
+                className="flex flex-col gap-6"
               >
                 {service.galleryImages ? (
-                  service.galleryImages.map((img, index) => (
+                  <>
+                    {/* First Large Image */}
                     <motion.div 
-                      key={index} 
                       variants={itemVariants}
-                      className={`group relative overflow-hidden rounded-xl shadow-lg ${index === 0 ? 'col-span-2' : ''}`}
+                      className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg"
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >
                       <motion.img
-                        src={img}
-                        alt={`${service.title} ${index + 1}`}
+                        src={service.galleryImages[0]}
+                        alt={`${service.title} Main`}
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.5 }}
                       />
                       <motion.div 
-                        className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
+                        className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300"
                       />
                     </motion.div>
-                  ))
-                ) : (
-                  <>
-                    <motion.div 
-                      variants={itemVariants}
-                      className="col-span-2 group relative overflow-hidden rounded-xl shadow-lg"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <motion.img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-[300px] md:h-[400px] object-cover"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
-                      />
-                      <motion.div 
-                        className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                      />
-                    </motion.div>
-                    <motion.div 
-                      variants={itemVariants}
-                      className="group relative overflow-hidden rounded-xl shadow-lg"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <motion.img
-                        src={`https://source.unsplash.com/random/600x400/?${service.title.toLowerCase().replace(/\s+/g, '-')}-detail-1`}
-                        alt={`${service.title} Detail 1`}
-                        className="w-full h-[200px] md:h-[250px] object-cover"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
-                      />
-                      <motion.div 
-                        className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                      />
-                    </motion.div>
-                    <motion.div 
-                      variants={itemVariants}
-                      className="group relative overflow-hidden rounded-xl shadow-lg"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <motion.img
-                        src={`https://source.unsplash.com/random/600x400/?${service.title.toLowerCase().replace(/\s+/g, '-')}-detail-2`}
-                        alt={`${service.title} Detail 2`}
-                        className="w-full h-[200px] md:h-[250px] object-cover"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
-                      />
-                      <motion.div 
-                        className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                      />
-                    </motion.div>
+
+                    {/* Image Carousel */}
+                    {service.galleryImages.length > 1 && (
+                      <motion.div
+                        variants={itemVariants}
+                        className="relative w-full h-[300px] md:h-[400px] overflow-hidden rounded-xl shadow-lg bg-black touch-none perspective-[1200px]"
+                        onMouseEnter={() => setIsPlaying(false)}
+                        onMouseLeave={() => setIsPlaying(true)}
+                        onTouchStart={() => setIsPlaying(false)}
+                        onTouchEnd={(e) => {
+                          if (e.touches.length === 0) {
+                            setIsPlaying(true);
+                          }
+                        }}
+                      >
+                        <motion.div
+                          className="flex h-full"
+                          style={{ 
+                            position: 'relative',
+                            transformStyle: 'preserve-3d',
+                          }}
+                        >
+                          {service.galleryImages.slice(1).map((img, index) => (
+                            <motion.div
+                              key={index}
+                              className="absolute top-0 left-0 w-full h-full origin-left"
+                              initial={{ opacity: 0, rotateY: -90 }}
+                              animate={{
+                                opacity: index === currentImageIndex ? 1 : 0,
+                                rotateY: index === currentImageIndex ? 0 : 
+                                        index < currentImageIndex ? 90 : -90,
+                                transition: {
+                                  opacity: { duration: 0.5 },
+                                  rotateY: { duration: 0.8, ease: [0.4, 0, 0.2, 1] }
+                                }
+                              }}
+                              style={{
+                                zIndex: index === currentImageIndex ? 2 : 1,
+                                backfaceVisibility: 'hidden'
+                              }}
+                            >
+                              <motion.div 
+                                className="relative w-full h-full overflow-hidden rounded-lg"
+                                style={{
+                                  transformStyle: 'preserve-3d',
+                                }}
+                              >
+                                <motion.img
+                                  src={img}
+                                  alt={`${service.title} ${index + 2}`}
+                                  className="absolute inset-0 w-full h-full object-cover select-none"
+                                  initial={false}
+                                  animate={{ 
+                                    scale: index === currentImageIndex ? 1 : 0.9
+                                  }}
+                                  transition={{ duration: 0.8 }}
+                                  draggable={false}
+                                />
+                                {/* Page shadow effect */}
+                                <motion.div
+                                  className="absolute inset-0 pointer-events-none"
+                                  initial={{ opacity: 0 }}
+                                  animate={{
+                                    opacity: index === currentImageIndex ? 1 : 0,
+                                    background: 'linear-gradient(to right, rgba(0,0,0,0.2) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.2) 100%)'
+                                  }}
+                                  transition={{ duration: 0.5 }}
+                                />
+                                {/* Page edge highlight */}
+                                <motion.div
+                                  className="absolute right-0 top-0 bottom-0 w-[1px] bg-white/20"
+                                  initial={{ opacity: 0 }}
+                                  animate={{
+                                    opacity: index === currentImageIndex ? 1 : 0
+                                  }}
+                                  transition={{ duration: 0.5 }}
+                                />
+                              </motion.div>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+
+                        {/* Dots Navigation */}
+                        <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center gap-4 z-10">
+                          {service.galleryImages.slice(1).map((_, index) => (
+                            <motion.button
+                              key={index}
+                              className={`w-4 h-4 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+                                index === currentImageIndex 
+                                  ? 'bg-white scale-125' 
+                                  : 'bg-white/40 hover:bg-white/60'
+                              }`}
+                              whileHover={{ scale: 1.2 }}
+                              whileTap={{ scale: 0.9 }}
+                              onClick={() => {
+                                goToImage(index);
+                                setIsPlaying(false);
+                                setTimeout(() => setIsPlaying(true), 2000);
+                              }}
+                            />
+                          ))}
+                        </div>
+
+                        {/* Progress Bar */}
+                        <motion.div 
+                          className="absolute bottom-0 left-0 h-1.5 md:h-1 bg-white"
+                          initial={{ width: "0%", opacity: 0.3 }}
+                          animate={{ 
+                            width: "100%",
+                            opacity: isPlaying ? 0.5 : 0.2,
+                            transition: {
+                              width: {
+                                duration: autoPlayDelay / 1000,
+                                ease: "linear",
+                                repeat: isPlaying ? Infinity : 0,
+                                repeatType: "loop"
+                              }
+                            }
+                          }}
+                        />
+
+                        {/* Pause state overlay */}
+                        <motion.div
+                          className="absolute inset-0 bg-black pointer-events-none"
+                          initial={{ opacity: 0 }}
+                          animate={{ 
+                            opacity: isPlaying ? 0 : 0.1 
+                          }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </motion.div>
+                    )}
                   </>
+                ) : (
+                  // Fallback content when no gallery images
+                  <motion.div 
+                    variants={itemVariants}
+                    className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <motion.img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                    <motion.div 
+                      className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </motion.div>
                 )}
               </motion.div>
             </motion.div>

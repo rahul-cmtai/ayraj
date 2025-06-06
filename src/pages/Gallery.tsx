@@ -6,74 +6,74 @@ import StickyChat from '@/components/StickyChat';
 
 // Predefined image paths for each category (updated to match folder names from screenshot)
 const categoryImages = {
-  'F-doors': [
+  'Majestic Door': [
     // Furniture-doors
-    { id: 'F-doors-1', image: '/images/Furniture-doors/IMG_8289 (2).JPG', title: 'Designer Door' },
-    { id: 'F-doors-2', image: '/images/Furniture-doors/IMG_8290.JPG', title: 'Designer Door' },
-    { id: 'F-doors-3', image: '/images/Furniture-doors/IMG_8291.JPG', title: 'Designer Door' },
-    { id: 'F-doors-4', image: '/images/Furniture-doors/IMG_8292.JPG', title: 'Designer Door' },
-    { id: 'F-doors-5', image: '/images/Furniture-doors/IMG_8293.JPG', title: 'Designer Door' },
-    { id: 'F-doors-6', image: '/images/Furniture-doors/IMG_8294.JPG', title: 'Designer Door' },
-    { id: 'F-doors-7', image: '/images/Furniture-doors/IMG_8295.JPG', title: 'Designer Door' },
-    { id: 'F-doors-8', image: '/images/Furniture-doors/IMG_8296.JPG', title: 'Designer Door' },
-    { id: 'F-doors-9', image: '/images/Furniture-doors/IMG_8297.JPG', title: 'Designer Door' },
-    { id: 'F-doors-10', image: '/images/Furniture-doors/IMG_8298.JPG', title: 'Designer Door' },
-    { id: 'F-doors-11', image: '/images/Furniture-doors/IMG_8299.JPG', title: 'Designer Door' },
-    { id: 'F-doors-12', image: '/images/Furniture-doors/IMG_8300.JPG', title: 'Designer Door' },
-    { id: 'F-doors-13', image: '/images/Furniture-doors/IMG_8301.JPG', title: 'Designer Door' },
-    { id: 'F-doors-14', image: '/images/Furniture-doors/IMG_8302.JPG', title: 'Designer Door' },
-    { id: 'F-doors-15', image: '/images/Furniture-doors/IMG_8303.JPG', title: 'Designer Door' },
-    { id: 'F-doors-16', image: '/images/Furniture-doors/IMG_8305.JPG', title: 'Designer Door' },
-    { id: 'F-doors-17', image: '/images/Furniture-doors/IMG_8306.JPG', title: 'Designer Door' },
-    { id: 'F-doors-18', image: '/images/Furniture-doors/IMG_8307.JPG', title: 'Designer Door' },
-    { id: 'F-doors-19', image: '/images/Furniture-doors/IMG_8391.JPG', title: 'Designer Door' },
-    { id: 'F-doors-20', image: '/images/Furniture-doors/IMG_8392.JPG', title: 'Designer Door' },
-    { id: 'F-doors-21', image: '/images/Furniture-doors/IMG_8393.JPG', title: 'Designer Door' },
-    { id: 'F-doors-22', image: '/images/Furniture-doors/IMG_8394.JPG', title: 'Designer Door' },
-    { id: 'F-doors-23', image: '/images/Furniture-doors/IMG_8395.JPG', title: 'Designer Door' }
+    { id: 'Majestic Door-1', image: '/images/Furniture-doors/IMG_8289 (2).JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-2', image: '/images/Furniture-doors/IMG_8290.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-3', image: '/images/Furniture-doors/IMG_8291.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-4', image: '/images/Furniture-doors/IMG_8292.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-5', image: '/images/Furniture-doors/IMG_8293.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-6', image: '/images/Furniture-doors/IMG_8294.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-7', image: '/images/Furniture-doors/IMG_8295.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-8', image: '/images/Furniture-doors/IMG_8296.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-9', image: '/images/Furniture-doors/IMG_8297.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-10', image: '/images/Furniture-doors/IMG_8298.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-11', image: '/images/Furniture-doors/IMG_8299.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-12', image: '/images/Furniture-doors/IMG_8300.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-13', image: '/images/Furniture-doors/IMG_8301.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-14', image: '/images/Furniture-doors/IMG_8302.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-15', image: '/images/Furniture-doors/IMG_8303.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-16', image: '/images/Furniture-doors/IMG_8305.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-17', image: '/images/Furniture-doors/IMG_8306.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-18', image: '/images/Furniture-doors/IMG_8307.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-19', image: '/images/Furniture-doors/IMG_8391.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-20', image: '/images/Furniture-doors/IMG_8392.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-21', image: '/images/Furniture-doors/IMG_8393.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-22', image: '/images/Furniture-doors/IMG_8394.JPG', title: 'Designer Door' },
+    { id: 'Majestic Door-23', image: '/images/Furniture-doors/IMG_8395.JPG', title: 'Designer Door' }
   ],
-  'F-consoles': [
+  'Furniture consoles': [
     // Furniture-consoles
-    { id: 'F-consoles-1', image: '/images/Furniture-consoles/IMG_8386.JPG', title: 'Console' },
-    { id: 'F-consoles-2', image: '/images/Furniture-consoles/IMG_8387.JPG', title: 'Console' },
-    { id: 'F-consoles-3', image: '/images/Furniture-consoles/IMG_8388.JPG', title: 'Console' },
-    { id: 'F-consoles-4', image: '/images/Furniture-consoles/IMG_8389.JPG', title: 'Console' },
-    { id: 'F-consoles-5', image: '/images/Furniture-consoles/IMG_8390.JPG', title: 'Console' },
-    { id: 'F-consoles-6', image: '/images/Furniture-consoles/IMG_8396.JPG', title: 'Console' }
+    { id: 'Furniture consoles-1', image: '/images/Furniture-consoles/IMG_8386.JPG', title: 'Console' },
+    { id: 'Furniture consoles-2', image: '/images/Furniture-consoles/IMG_8387.JPG', title: 'Console' },
+    { id: 'Furniture consoles-3', image: '/images/Furniture-consoles/IMG_8388.JPG', title: 'Console' },
+    { id: 'Furniture consoles-4', image: '/images/Furniture-consoles/IMG_8389.JPG', title: 'Console' },
+    { id: 'Furniture consoles-5', image: '/images/Furniture-consoles/IMG_8390.JPG', title: 'Console' },
+    { id: 'Furniture consoles-6', image: '/images/Furniture-consoles/IMG_8396.JPG', title: 'Console' }
   ],
-  'F-sofas': [
+  'Aura Sofas': [
     // Furniture-sofas
-    { id: 'F-sofas-1', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42.JPG', title: 'Sofa' },
-    { id: 'F-sofas-2', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42 4.JPG', title: 'Sofa' },
-    { id: 'F-sofas-3', image: '/images/Furniture-sofas/IMG_8385.JPG', title: 'Sofa' },
-    { id: 'F-sofas-4', image: '/images/Furniture-sofas/IMG_8383.JPG', title: 'Sofa' },
-    { id: 'F-sofas-5', image: '/images/Furniture-sofas/IMG_8382.JPG', title: 'Sofa' },
-    { id: 'F-sofas-6', image: '/images/Furniture-sofas/IMG_8377.JPG', title: 'Sofa' },
-    { id: 'F-sofas-7', image: '/images/Furniture-sofas/IMG_8318.JPG', title: 'Sofa' },
-    { id: 'F-sofas-8', image: '/images/Furniture-sofas/IMG_8314.JPG', title: 'Sofa' },
-    { id: 'F-sofas-9', image: '/images/Furniture-sofas/IMG_8313.JPG', title: 'Sofa' },
-    { id: 'F-sofas-10', image: '/images/Furniture-sofas/IMG_8311.JPG', title: 'Sofa' },
-    { id: 'F-sofas-11', image: '/images/Furniture-sofas/IMG_8310.JPG', title: 'Sofa' },
-    { id: 'F-sofas-12', image: '/images/Furniture-sofas/IMG_8309.JPG', title: 'Sofa' },
-    { id: 'F-sofas-13', image: '/images/Furniture-sofas/IMG_8308.JPG', title: 'Sofa' },
-    { id: 'F-sofas-14', image: '/images/Furniture-sofas/IMG_7353.JPG', title: 'Sofa' },
-    { id: 'F-sofas-15', image: '/images/Furniture-sofas/IMG_7351.JPG', title: 'Sofa' },
-    { id: 'F-sofas-16', image: '/images/Furniture-sofas/IMG_7350.JPG', title: 'Sofa' },
-    { id: 'F-sofas-17', image: '/images/Furniture-sofas/IMG_7349.JPG', title: 'Sofa' },
-    { id: 'F-sofas-18', image: '/images/Furniture-sofas/FC26C4EC-463B-4658-AEE4-37B67BFA964C.JPG', title: 'Sofa' },
-    { id: 'F-sofas-19', image: '/images/Furniture-sofas/4B24DC39-DACC-4EC9-B24C-4FBE9108D5B3.JPG', title: 'Sofa' }
+    { id: 'Aura Sofas-1', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-2', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42 4.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-3', image: '/images/Furniture-sofas/IMG_8385.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-4', image: '/images/Furniture-sofas/IMG_8383.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-5', image: '/images/Furniture-sofas/IMG_8382.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-6', image: '/images/Furniture-sofas/IMG_8377.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-7', image: '/images/Furniture-sofas/IMG_8318.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-8', image: '/images/Furniture-sofas/IMG_8314.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-9', image: '/images/Furniture-sofas/IMG_8313.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-10', image: '/images/Furniture-sofas/IMG_8311.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-11', image: '/images/Furniture-sofas/IMG_8310.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-12', image: '/images/Furniture-sofas/IMG_8309.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-13', image: '/images/Furniture-sofas/IMG_8308.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-14', image: '/images/Furniture-sofas/IMG_7353.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-15', image: '/images/Furniture-sofas/IMG_7351.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-16', image: '/images/Furniture-sofas/IMG_7350.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-17', image: '/images/Furniture-sofas/IMG_7349.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-18', image: '/images/Furniture-sofas/FC26C4EC-463B-4658-AEE4-37B67BFA964C.JPG', title: 'Sofa' },
+    { id: 'Aura Sofas-19', image: '/images/Furniture-sofas/4B24DC39-DACC-4EC9-B24C-4FBE9108D5B3.JPG', title: 'Sofa' }
   ],
-  'F-kitchen': [
+  'Divine Kitchens': [
     // Furniture-kitchen
-    { id: 'F-kitchen-1', image: '/images/Furniture-kitchen/PHOTO-2025-04-17-15-38-42 3.JPG', title: 'Kitchen' },
-    { id: 'F-kitchen-2', image: '/images/Furniture-kitchen/PHOTO-2025-04-17-15-38-41.JPG', title: 'Kitchen' },
-    { id: 'F-kitchen-3', image: '/images/Furniture-kitchen/IMG_8376.JPG', title: 'Kitchen' },
-    { id: 'F-kitchen-4', image: '/images/Furniture-kitchen/IMG_8375.JPG', title: 'Kitchen' },
-    { id: 'F-kitchen-5', image: '/images/Furniture-kitchen/IMG_8374.JPG', title: 'Kitchen' },
-    { id: 'F-kitchen-6', image: '/images/Furniture-kitchen/IMG_8373.JPG', title: 'Kitchen' },
-    { id: 'F-kitchen-7', image: '/images/Furniture-kitchen/IMG_8372.JPG', title: 'Kitchen' },
-    { id: 'F-kitchen-8', image: '/images/Furniture-kitchen/IMG_7408.JPG', title: 'Kitchen' },
-    { id: 'F-kitchen-9', image: '/images/Furniture-kitchen/IMG_7407.JPG', title: 'Kitchen' }
+    { id: 'Divine Kitchens-1', image: '/images/Furniture-kitchen/PHOTO-2025-04-17-15-38-42 3.JPG', title: 'Kitchen' },
+    { id: 'Divine Kitchens-2', image: '/images/Furniture-kitchen/PHOTO-2025-04-17-15-38-41.JPG', title: 'Kitchen' },
+    { id: 'Divine Kitchens-3', image: '/images/Furniture-kitchen/IMG_8376.JPG', title: 'Kitchen' },
+    { id: 'Divine Kitchens-4', image: '/images/Furniture-kitchen/IMG_8375.JPG', title: 'Kitchen' },
+    { id: 'Divine Kitchens-5', image: '/images/Furniture-kitchen/IMG_8374.JPG', title: 'Kitchen' },
+    { id: 'Divine Kitchens-6', image: '/images/Furniture-kitchen/IMG_8373.JPG', title: 'Kitchen' },
+    { id: 'Divine Kitchens-7', image: '/images/Furniture-kitchen/IMG_8372.JPG', title: 'Kitchen' },
+    { id: 'Divine Kitchens-8', image: '/images/Furniture-kitchen/IMG_7408.JPG', title: 'Kitchen' },
+    { id: 'Divine Kitchens-9', image: '/images/Furniture-kitchen/IMG_7407.JPG', title: 'Kitchen' }
   ],
   'Carpets': [
     // Carpets
@@ -183,12 +183,12 @@ const categoryImages = {
 
 const categories = [
   'Wallpapers',
-  'F-doors',
+  'Majestic Door',
   'Carpets',
-  'F-consoles',
-  'F-sofas',
+  'Furniture consoles',
+  'Aura Sofas',
   'Dinnerware',
-  'F-kitchen',
+  'Divine Kitchens',
   'Wooden',
   'Tiles'
 ];
@@ -196,12 +196,12 @@ const categories = [
 // Map new short category names to folder names for image paths
 const categoryFolderMap = {
   'Wallpapers': 'Wallpapers',
-  'F-doors': 'Furniture-doors',
+  'Majestic Door': 'Furniture-doors',
   'Carpets': 'Carpets',
-  'F-consoles': 'Furniture-consoles',
-  'F-sofas': 'Furniture-sofas',
+  'Furniture consoles': 'Furniture-consoles',
+  'Aura Sofas': 'Furniture-sofas',
   'Dinnerware': 'Dinnerware & Tableware',
-  'F-kitchen': 'Furniture-kitchen',
+  'Divine Kitchens': 'Furniture-kitchen',
   'Wooden': 'Wooden flooring',
   'Tiles': 'Tiles'
 };
@@ -209,6 +209,7 @@ const categoryFolderMap = {
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [showAll, setShowAll] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<{ image: string; title: string } | null>(null);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -220,6 +221,16 @@ const Gallery = () => {
   
   const displayedGallery = showAll ? filteredGallery : filteredGallery.slice(0, 9);
   const hasMoreImages = filteredGallery.length > 9;
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'auto';
+  };
+
+  const openModal = (image: string, title: string) => {
+    setSelectedImage({ image, title });
+    document.body.style.overflow = 'hidden';
+  };
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -252,7 +263,7 @@ const Gallery = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             {/* Filter Buttons */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="grid grid-cols-3 gap-2 md:flex md:flex-wrap md:justify-center md:gap-4 mb-12">
               {categories.map(category => (
                 <button
                   key={category}
@@ -260,7 +271,7 @@ const Gallery = () => {
                     setActiveCategory(category);
                     setShowAll(false);
                   }}
-                  className={`px-6 py-3 rounded-md transition-colors ${
+                  className={`px-3 py-2 md:px-6 md:py-3 rounded-md transition-colors text-sm md:text-base ${
                     activeCategory === category
                       ? 'bg-olive text-white'
                       : 'bg-cream text-olive hover:bg-olive/10'
@@ -276,15 +287,16 @@ const Gallery = () => {
               {displayedGallery.map(item => (
                 <div 
                   key={item.id} 
-                  className={`gallery-item group relative overflow-hidden ${
-                    item.id.startsWith('F-doors') ? 'md:col-span-1 lg:col-span-1' : ''
+                  className={`gallery-item group relative overflow-hidden cursor-pointer ${
+                    item.id.startsWith('Majestic Door') ? 'md:col-span-1 lg:col-span-1' : ''
                   }`}
+                  onClick={() => openModal(item.image, item.title)}
                 >
                   <img
                     src={item.image}
                     alt={item.title}
                     className={`w-full object-contain transition-transform duration-300 group-hover:scale-110 ${
-                      item.id.startsWith('F-doors') 
+                      item.id.startsWith('Majestic Door') 
                         ? 'h-[500px]' // Taller height for doors
                         : 'h-80' // Normal height for other items
                     }`}
@@ -331,6 +343,32 @@ const Gallery = () => {
           </div>
         </section>
       </main>
+      
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-[90vw] max-h-[90vh]">
+            <button
+              onClick={closeModal}
+              className="absolute -top-12 right-0 text-white text-3xl hover:text-cream"
+            >
+              ×
+            </button>
+            <img
+              src={selectedImage.image}
+              alt={selectedImage.title}
+              className="max-w-full max-h-[85vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <p className="text-white text-center mt-4 font-playfair">
+              {selectedImage.title}
+            </p>
+          </div>
+        </div>
+      )}
       
       <Footer />
       <StickyChat />

@@ -1,83 +1,47 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import servicesData from '@/data/servicesData';
 
 const ServiceOverview = () => {
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [0.8, 1]);
   const [activeCardId, setActiveCardId] = useState<number | null>(null);
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
 
-  // Function to truncate description to 10 words
+  const isMobile = () => window.innerWidth < 768;
+
   const truncateDescription = (description: string) => {
     const words = description.split(' ');
     if (words.length <= 10) return description;
     return words.slice(0, 10).join(' ') + '...';
   };
 
-  // Utility to detect mobile
-  const isMobile = () => window.innerWidth < 768;
-
-  // Enhanced animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-        duration: 0.6
-      }
-    }
-  };
-
+  // Simple sliding animation variants for cards
   const cardVariants = (index: number) => ({
     hidden: { 
       opacity: 0,
-      x: index % 2 === 0 ? -100 : 100, // Alternate between left and right
-      y: 20,
-      scale: 0.9,
-      rotateY: index % 2 === 0 ? -10 : 10 // Slight rotation based on direction
+      x: index % 2 === 0 ? -100 : 100,
     },
     visible: { 
       opacity: 1,
       x: 0,
-      y: 0,
-      scale: 1,
-      rotateY: 0,
       transition: {
         type: "spring",
-        stiffness: 70,
-        damping: 15,
-        mass: 0.8,
-        delay: index * 0.1 // Stagger the animations
+        damping: 20,
+        stiffness: 100,
+        duration: 0.6,
+        delay: index * 0.2
       }
     },
     hover: {
-      scale: 1.03,
-      y: -5,
+      y: -10,
       transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 15
+        duration: 0.2
       }
     }
   });
 
-  const imageVariants = {
-    hover: {
-      scale: 1.15,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20
-      }
-    }
-  };
-
+  // Content animations
   const overlayVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -131,6 +95,7 @@ const ServiceOverview = () => {
     }
   };
 
+  // Title animations
   const titleVariants = {
     hidden: { 
       opacity: 0,
@@ -171,100 +136,9 @@ const ServiceOverview = () => {
     }
   };
 
-  // Wave animation variants
-  const waveVariants = {
-    animate: (i: number) => ({
-      y: [0, -20, 0],
-      x: [0, i % 2 === 0 ? 30 : -30, 0],
-      rotate: [0, i % 2 === 0 ? 5 : -5, 0],
-      transition: {
-        duration: 8 + i,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: i * 0.2
-      }
-    })
-  };
-
-  // Glowing orb variants
-  const orbVariants = {
-    animate: (i: number) => ({
-      scale: [1, 1.2, 1],
-      opacity: [0.2, 0.4, 0.2],
-      x: [0, i % 2 === 0 ? 50 : -50, 0],
-      y: [0, -50, 0],
-      transition: {
-        duration: 6 + i,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: i * 0.3
-      }
-    })
-  };
-
-  // Generate waves
-  const waves = Array.from({ length: 5 }, (_, i) => ({
-    id: i,
-    width: 300 + Math.random() * 200,
-    height: 100 + Math.random() * 100,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    color: i % 2 === 0 ? 'rgba(255,215,0,0.15)' : 'rgba(255,215,0,0.1)'
-  }));
-
-  // Generate orbs
-  const orbs = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    size: 50 + Math.random() * 100,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    color: i % 3 === 0 ? 'rgba(255,215,0,0.2)' : 'rgba(255,215,0,0.15)'
-  }));
-
   return (
-    <motion.section 
-      style={{ opacity, scale }}
-      className="py-16 md:py-20 overflow-hidden relative bg-gradient-to-b from-cream-light via-cream-light/95 to-cream-light"
-    >
-      {/* Animated waves */}
-      {waves.map((wave) => (
-        <motion.div
-          key={`wave-${wave.id}`}
-          className="absolute rounded-full blur-2xl"
-          style={{
-            width: wave.width,
-            height: wave.height,
-            left: `${wave.x}%`,
-            top: `${wave.y}%`,
-            background: wave.color,
-            transform: 'translate(-50%, -50%)'
-          }}
-          variants={waveVariants}
-          animate="animate"
-          custom={wave.id}
-        />
-      ))}
-
-      {/* Glowing orbs */}
-      {orbs.map((orb) => (
-        <motion.div
-          key={`orb-${orb.id}`}
-          className="absolute rounded-full blur-xl"
-          style={{
-            width: orb.size,
-            height: orb.size,
-            left: `${orb.x}%`,
-            top: `${orb.y}%`,
-            background: orb.color,
-            transform: 'translate(-50%, -50%)'
-          }}
-          variants={orbVariants}
-          animate="animate"
-          custom={orb.id}
-        />
-      ))}
-
-      {/* Animated gradient overlay */}
+    <section className="py-16 md:py-20 overflow-hidden relative bg-gradient-to-b from-cream-light via-cream-light/95 to-cream-light">
+      {/* Premium gradient overlay */}
       <motion.div
         className="absolute inset-0 opacity-50"
         style={{
@@ -281,13 +155,11 @@ const ServiceOverview = () => {
         }}
       />
 
-      {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
-          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
           <motion.h2 
@@ -309,24 +181,26 @@ const ServiceOverview = () => {
                 ease: "easeInOut"
               }}
             >
-              Our Services
+              <span className="relative inline-block">
+                <span className="relative z-10">Our Services</span>
+                <motion.span 
+                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-gold/40 via-gold to-gold/40" 
+                  initial={{ width: "0%", left: "50%" }}
+                  animate={{ width: "100%", left: "0%" }}
+                  transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+                />
+              </span>
             </motion.span>
           </motion.h2>
           <motion.p 
             variants={subtitleVariants}
-            className="section-subtitle text-lg md:text-xl text-gray-600"
+            className="section-subtitle text-lg md:text-xl text-gray-600/80 font-light italic mt-2"
           >
             Explore Our Premium Offerings
           </motion.p>
         </motion.div>
-        
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-        >
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesData.map((service, index) => (
             <motion.div
               key={service.id}
@@ -334,6 +208,7 @@ const ServiceOverview = () => {
               initial="hidden"
               whileInView="visible"
               whileHover="hover"
+              viewport={{ once: true, margin: "-50px" }}
               onHoverStart={() => setHoveredCardId(service.id)}
               onHoverEnd={() => setHoveredCardId(null)}
               onClick={() => {
@@ -341,21 +216,12 @@ const ServiceOverview = () => {
                   setActiveCardId(activeCardId === service.id ? null : service.id);
                 }
               }}
-              onMouseLeave={() => {
-                if (isMobile()) return;
-                setActiveCardId(null);
-              }}
-              className="service-card group relative h-[280px] md:h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer transform-gpu perspective-1000 bg-white/90 backdrop-blur-sm"
-              style={{
-                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-                border: '1px solid rgba(255, 255, 255, 0.3)'
-              }}
+              className="group relative h-[280px] rounded-xl overflow-hidden shadow-lg bg-white"
             >
-              <motion.img
-                variants={imageVariants}
+              <img
                 src={service.image}
                 alt={service.title}
-                className={`w-full h-full transition-all duration-300 bg-white ${
+                className={`w-full h-full transition-all duration-300 ${
                   ['Furniture Doors', 'Furniture Consoles'].includes(service.title)
                     ? 'object-contain'
                     : 'object-cover'
@@ -375,7 +241,7 @@ const ServiceOverview = () => {
                       className="absolute bottom-0 left-0 right-0 p-6 text-white"
                     >
                       <motion.h3 
-                        className="text-xl md:text-2xl font-playfair font-medium text-white mb-2"
+                        className="text-xl md:text-2xl font-medium text-white mb-2"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
@@ -383,7 +249,7 @@ const ServiceOverview = () => {
                         {service.title}
                       </motion.h3>
                       <motion.p 
-                        className="text-cream/90 text-sm md:text-base mb-4 line-clamp-2"
+                        className="text-cream/90 text-sm md:text-base mb-4"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
@@ -396,7 +262,7 @@ const ServiceOverview = () => {
                       >
                         <Link
                           to={`/services/${service.slug}`}
-                          className="inline-flex items-center text-gold hover:text-gold-light transition-colors font-medium"
+                          className="inline-flex items-center text-gold hover:text-gold-light transition-colors"
                         >
                           Learn More
                           <motion.span 
@@ -421,9 +287,9 @@ const ServiceOverview = () => {
               </AnimatePresence>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

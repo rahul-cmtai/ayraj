@@ -38,12 +38,16 @@ const Navigation = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              src="/images/logo.png"
+              src="/images/logo11.png"
               alt="Ayraj Logo"
               className={cn(
-                'h-20 w-auto transition-all duration-300',
-                isScrolled ? '' : ''
+                'h-24 w-auto transition-all duration-300',
+                isScrolled ? 'h-20' : 'h-24'
               )}
+              style={{
+                filter: isScrolled ? 'none' : 'brightness(0) invert(1)',
+                mixBlendMode: isScrolled ? 'normal' : 'lighten'
+              }}
             />
           </Link>
 

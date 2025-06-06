@@ -20,6 +20,7 @@ import {
 } from "lucide-react"
 import Footer from "@/components/Footer"
 import Navigation from '@/components/Navigation';
+import { Link } from "react-router-dom";
 
 export default function AboutUs() {
   const [isVisible, setIsVisible] = useState(false)
@@ -220,10 +221,12 @@ export default function AboutUs() {
                 vision to life — with full transparency, meticulous project management, and a dedication to delivering
                 homes that are not only structurally sound but emotionally resonant.
               </p>
-              <Button className="bg-olive hover:bg-olive text-white">
-                View Construction Projects
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              <Link to="/my-work">
+                <Button className="bg-olive hover:bg-olive text-white">
+                  View Construction Projects
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

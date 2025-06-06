@@ -212,8 +212,8 @@ const AboutPreview = () => {
               }}
             >
               <motion.img
-                src="https://images.unsplash.com/photo-1618219944342-824e40a13285?q=80&w=2670&auto=format&fit=crop"
-                alt="Luxury Interior"
+            src="/images/Furniture-doors/IMG_8392.JPG"
+            alt="Luxury Interior"
                 className="w-full h-full object-cover"
                 initial={{ scale: 1.2 }}
                 animate={{ scale: 1 }}
