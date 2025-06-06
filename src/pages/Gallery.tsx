@@ -8,60 +8,60 @@ import StickyChat from '@/components/StickyChat';
 const categoryImages = {
   'Majestic Door': [
     // Furniture-doors
-    { id: 'Majestic Door-1', image: '/images/Furniture-doors/IMG_8289 (2).JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-2', image: '/images/Furniture-doors/IMG_8290.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-3', image: '/images/Furniture-doors/IMG_8291.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-4', image: '/images/Furniture-doors/IMG_8292.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-5', image: '/images/Furniture-doors/IMG_8293.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-6', image: '/images/Furniture-doors/IMG_8294.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-7', image: '/images/Furniture-doors/IMG_8295.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-8', image: '/images/Furniture-doors/IMG_8296.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-9', image: '/images/Furniture-doors/IMG_8297.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-10', image: '/images/Furniture-doors/IMG_8298.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-11', image: '/images/Furniture-doors/IMG_8299.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-12', image: '/images/Furniture-doors/IMG_8300.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-13', image: '/images/Furniture-doors/IMG_8301.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-14', image: '/images/Furniture-doors/IMG_8302.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-15', image: '/images/Furniture-doors/IMG_8303.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-16', image: '/images/Furniture-doors/IMG_8305.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-17', image: '/images/Furniture-doors/IMG_8306.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-18', image: '/images/Furniture-doors/IMG_8307.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-19', image: '/images/Furniture-doors/IMG_8391.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-20', image: '/images/Furniture-doors/IMG_8392.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-21', image: '/images/Furniture-doors/IMG_8393.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-22', image: '/images/Furniture-doors/IMG_8394.JPG', title: 'Designer Door' },
-    { id: 'Majestic Door-23', image: '/images/Furniture-doors/IMG_8395.JPG', title: 'Designer Door' }
+    { id: 'Majestic Door-1', image: '/images/Furniture-doors/IMG_8289 (2).JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-2', image: '/images/Furniture-doors/IMG_8290.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-3', image: '/images/Furniture-doors/IMG_8291.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-4', image: '/images/Furniture-doors/IMG_8292.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-5', image: '/images/Furniture-doors/IMG_8293.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-6', image: '/images/Furniture-doors/IMG_8294.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-7', image: '/images/Furniture-doors/IMG_8295.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-8', image: '/images/Furniture-doors/IMG_8296.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-9', image: '/images/Furniture-doors/IMG_8297.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-10', image: '/images/Furniture-doors/IMG_8298.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-11', image: '/images/Furniture-doors/IMG_8299.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-12', image: '/images/Furniture-doors/IMG_8300.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-13', image: '/images/Furniture-doors/IMG_8301.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-14', image: '/images/Furniture-doors/IMG_8302.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-15', image: '/images/Furniture-doors/IMG_8303.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-16', image: '/images/Furniture-doors/IMG_8305.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-17', image: '/images/Furniture-doors/IMG_8306.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-18', image: '/images/Furniture-doors/IMG_8307.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-19', image: '/images/Furniture-doors/IMG_8391.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-20', image: '/images/Furniture-doors/IMG_8392.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-21', image: '/images/Furniture-doors/IMG_8393.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-22', image: '/images/Furniture-doors/IMG_8394.JPG', title: 'Majestic Door' },
+    { id: 'Majestic Door-23', image: '/images/Furniture-doors/IMG_8395.JPG', title: 'Majestic Door' }
   ],
-  'Furniture consoles': [
+  'Prestige Consoles': [
     // Furniture-consoles
-    { id: 'Furniture consoles-1', image: '/images/Furniture-consoles/IMG_8386.JPG', title: 'Console' },
-    { id: 'Furniture consoles-2', image: '/images/Furniture-consoles/IMG_8387.JPG', title: 'Console' },
-    { id: 'Furniture consoles-3', image: '/images/Furniture-consoles/IMG_8388.JPG', title: 'Console' },
-    { id: 'Furniture consoles-4', image: '/images/Furniture-consoles/IMG_8389.JPG', title: 'Console' },
-    { id: 'Furniture consoles-5', image: '/images/Furniture-consoles/IMG_8390.JPG', title: 'Console' },
-    { id: 'Furniture consoles-6', image: '/images/Furniture-consoles/IMG_8396.JPG', title: 'Console' }
+    { id: 'Prestige Consoles-1', image: '/images/Furniture-consoles/IMG_8386.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-2', image: '/images/Furniture-consoles/IMG_8387.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-3', image: '/images/Furniture-consoles/IMG_8388.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-4', image: '/images/Furniture-consoles/IMG_8389.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-5', image: '/images/Furniture-consoles/IMG_8390.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-6', image: '/images/Furniture-consoles/IMG_8396.JPG', title: 'Console' }
   ],
-  'Aura Sofas': [
+  'Aurora Sofas': [
     // Furniture-sofas
-    { id: 'Aura Sofas-1', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-2', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42 4.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-3', image: '/images/Furniture-sofas/IMG_8385.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-4', image: '/images/Furniture-sofas/IMG_8383.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-5', image: '/images/Furniture-sofas/IMG_8382.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-6', image: '/images/Furniture-sofas/IMG_8377.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-7', image: '/images/Furniture-sofas/IMG_8318.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-8', image: '/images/Furniture-sofas/IMG_8314.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-9', image: '/images/Furniture-sofas/IMG_8313.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-10', image: '/images/Furniture-sofas/IMG_8311.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-11', image: '/images/Furniture-sofas/IMG_8310.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-12', image: '/images/Furniture-sofas/IMG_8309.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-13', image: '/images/Furniture-sofas/IMG_8308.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-14', image: '/images/Furniture-sofas/IMG_7353.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-15', image: '/images/Furniture-sofas/IMG_7351.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-16', image: '/images/Furniture-sofas/IMG_7350.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-17', image: '/images/Furniture-sofas/IMG_7349.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-18', image: '/images/Furniture-sofas/FC26C4EC-463B-4658-AEE4-37B67BFA964C.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-19', image: '/images/Furniture-sofas/4B24DC39-DACC-4EC9-B24C-4FBE9108D5B3.JPG', title: 'Sofa' }
+    { id: 'Aurora Sofas-1', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-2', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42 4.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-3', image: '/images/Furniture-sofas/IMG_8385.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-4', image: '/images/Furniture-sofas/IMG_8383.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-5', image: '/images/Furniture-sofas/IMG_8382.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-6', image: '/images/Furniture-sofas/IMG_8377.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-7', image: '/images/Furniture-sofas/IMG_8318.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-8', image: '/images/Furniture-sofas/IMG_8314.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-9', image: '/images/Furniture-sofas/IMG_8313.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-10', image: '/images/Furniture-sofas/IMG_8311.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-11', image: '/images/Furniture-sofas/IMG_8310.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-12', image: '/images/Furniture-sofas/IMG_8309.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-13', image: '/images/Furniture-sofas/IMG_8308.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-14', image: '/images/Furniture-sofas/IMG_7353.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-15', image: '/images/Furniture-sofas/IMG_7351.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-16', image: '/images/Furniture-sofas/IMG_7350.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-17', image: '/images/Furniture-sofas/IMG_7349.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-18', image: '/images/Furniture-sofas/FC26C4EC-463B-4658-AEE4-37B67BFA964C.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-19', image: '/images/Furniture-sofas/4B24DC39-DACC-4EC9-B24C-4FBE9108D5B3.JPG', title: 'Sofa' }
   ],
   'Divine Kitchens': [
     // Furniture-kitchen
@@ -172,12 +172,8 @@ const categoryImages = {
     { id: 'Wallpapers-19', image: '/images/Wallpapers/IMG_5716.jpg', title: 'Wallpaper' },
     { id: 'Wallpapers-20', image: '/images/Wallpapers/IMG_5715.jpg', title: 'Wallpaper' },
     { id: 'Wallpapers-21', image: '/images/Wallpapers/IMG_5714.jpg', title: 'Wallpaper' },
-    { id: 'Wallpapers-22', image: '/images/Wallpapers/IMG_5713.jpg', title: 'Wallpaper' },
-    { id: 'Wallpapers-23', image: '/images/Wallpapers/dab33665-ff07-4616-9b68-a5389dcb42c7.JPG', title: 'Wallpaper' },
-    { id: 'Wallpapers-24', image: '/images/Wallpapers/d1a54e6b-6cde-445c-a1f4-7724c5cf1923.JPG', title: 'Wallpaper' },
-    { id: 'Wallpapers-25', image: '/images/Wallpapers/77219c95-45b7-4020-8568-04083b67f86a.JPG', title: 'Wallpaper' },
-    { id: 'Wallpapers-26', image: '/images/Wallpapers/706ec41a-bdf2-461e-8f7d-7770a1c7e25f.JPG', title: 'Wallpaper' },
-    { id: 'Wallpapers-27', image: '/images/Wallpapers/475aa0ac-8f44-43a2-a8ca-b12996a764d4.JPG', title: 'Wallpaper' }
+    { id: 'Wallpapers-22', image: '/images/Wallpapers/IMG_5713.jpg', title: 'Wallpaper' }
+   
   ]
 };
 
@@ -185,8 +181,8 @@ const categories = [
   'Wallpapers',
   'Majestic Door',
   'Carpets',
-  'Furniture consoles',
-  'Aura Sofas',
+  'Prestige Consoles',
+  'Aurora Sofas',
   'Dinnerware',
   'Divine Kitchens',
   'Wooden',
@@ -198,8 +194,8 @@ const categoryFolderMap = {
   'Wallpapers': 'Wallpapers',
   'Majestic Door': 'Furniture-doors',
   'Carpets': 'Carpets',
-  'Furniture consoles': 'Furniture-consoles',
-  'Aura Sofas': 'Furniture-sofas',
+  'Prestige Consoles': 'Furniture-consoles',
+  'Aurora Sofas': 'Furniture-sofas',
   'Dinnerware': 'Dinnerware & Tableware',
   'Divine Kitchens': 'Furniture-kitchen',
   'Wooden': 'Wooden flooring',
@@ -302,12 +298,12 @@ const Gallery = () => {
                     }`}
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white font-playfair text-xl font-medium">
-                      {item.title}
-                    </h3>
                     <p className="text-cream/80 text-sm">
                       {item.id.split('-')[0].charAt(0).toUpperCase() + item.id.split('-')[0].slice(1)}
                     </p>
+                     {/* <h3 className="text-white font-playfair text-xl font-medium">
+                      {item.title}
+                    </h3> */}
                   </div>
                 </div>
               ))}

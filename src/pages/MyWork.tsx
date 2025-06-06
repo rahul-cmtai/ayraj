@@ -156,17 +156,6 @@ const MyWork = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <h3 className="text-white font-playfair text-xl font-medium">
-                    {project.title}
-                  </h3>
-                  <p className="text-cream/80 text-sm mt-2">
-                    {project.description}
-                  </p>
-                  <Badge className="mt-4 w-fit bg-gold/20 text-cream border-0">
-                    {project.category}
-                  </Badge>
-                </div>
               </div>
             ))}
           </div>
@@ -176,17 +165,17 @@ const MyWork = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 p-4 md:p-6"
+          className="fixed inset-0 z-[9999] bg-black"
           onClick={closeModal}
         >
           <div 
-            className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden"
+            className="relative w-full h-full"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+              className="absolute top-4 right-4 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
               aria-label="Close modal"
             >
               <svg 
@@ -206,19 +195,12 @@ const MyWork = () => {
             </button>
 
             {/* Image container */}
-            <div className="relative aspect-[4/3] w-full bg-black/30">
+            <div className="w-full h-full flex items-center justify-center">
               <img
                 src={selectedImage.image}
                 alt={selectedImage.title}
-                className="w-full h-full object-contain"
+                className="max-w-full max-h-full w-full h-full object-contain"
               />
-            </div>
-
-            {/* Image title */}
-            <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 backdrop-blur-sm">
-              <h3 className="text-lg md:text-xl font-playfair text-center">
-                {selectedImage.title}
-              </h3>
             </div>
           </div>
         </div>
