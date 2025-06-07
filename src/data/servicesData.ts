@@ -78,7 +78,7 @@ const servicesData: ServiceType[] = [
     id: 3,
     title: 'Furniture Doors',
     description: 'Elegant and durable furniture doors to enhance your interiors.\n\nWhere craftsmanship meets grandeur—our luxurious wooden carving main doors are more than entrances; they are bold statements of timeless elegance. Hand-carved from the finest hardwoods, each door is a masterpiece of intricate detail and enduring strength. With motifs inspired by royal architecture and natural beauty, these doors welcome you home with a sense of prestige, tradition, and unmatched artistry.',
-    image: '/images/Furniture-doors/IMG_8306.JPG',
+    image: '/images/Furniture-doors/IMG_83944.jpg',
     detailed: true,
     slug: 'furniture-doors',
     benefits: [
