@@ -106,7 +106,7 @@ const servicesData: ServiceType[] = [
     id: 4,
     title: 'Carpets',
     description: 'Elegant and durable furniture doors to enhance your interiors.\n\nWhere craftsmanship meets grandeur—our luxurious wooden carving main doors are more than entrances; they are bold statements of timeless elegance. Hand-carved from the finest hardwoods, each door is a masterpiece of intricate detail and enduring strength. With motifs inspired by royal architecture and natural beauty, these doors welcome you home with a sense of prestige, tradition, and unmatched artistry.\n\nStep into a world of opulence where every thread tells a story of craftsmanship and elegance. Our luxurious high end carpets blend timeless design with rich textures, transforming ordinary floors into canvases of sophistication. Woven with premium materials and inspired by heritage artistry, each piece is a masterpiece—inviting warmth, comfort, and grandeur into your living space. We exclusively deal in high-end woolen, silk, knotted, and tufted carpets.',
-    image: '/images/Carpets/IMG_5125.JPG',
+    image: '/images/Carpets/IMG_51255.JPG',
     detailed: true,
     slug: 'carpets',
     benefits: [
@@ -115,7 +115,7 @@ const servicesData: ServiceType[] = [
       'Easy to clean and maintain',
       'Improves indoor air quality compared to hard floors'
     ],
-    
+
 
     materials: ['Wool', 'Nylon', 'Polyester', 'Acrylic', 'Silk'],
     process: [
