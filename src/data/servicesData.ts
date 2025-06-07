@@ -115,6 +115,8 @@ const servicesData: ServiceType[] = [
       'Easy to clean and maintain',
       'Improves indoor air quality compared to hard floors'
     ],
+    
+
     materials: ['Wool', 'Nylon', 'Polyester', 'Acrylic', 'Silk'],
     process: [
       'Site evaluation and measurement',
