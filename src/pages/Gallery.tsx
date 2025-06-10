@@ -78,7 +78,7 @@ const Gallery = () => {
       setGalleryItems(processedItems);
     } catch (err: any) {
       console.error('Error fetching gallery data:', err);
-      setError('Gallery items load nahi ho paa rahe hain. Please try again.');
+      setError('Unable to load gallery items. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -112,7 +112,7 @@ const Gallery = () => {
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin w-12 h-12 border-4 border-olive border-t-transparent rounded-full mx-auto mb-4"></div>
-            <p className="text-2xl font-playfair text-olive">Gallery load ho rahi hai...</p>
+            <p className="text-2xl font-playfair text-olive">Loading Gallery...</p>
           </div>
         </div>
         <Footer />
@@ -132,7 +132,7 @@ const Gallery = () => {
               onClick={fetchGalleryData}
               className="px-6 py-3 bg-olive text-white rounded-md hover:bg-olive-dark transition-colors"
             >
-              Dobara koshish karein
+              Try Again
             </button>
           </div>
         </div>
@@ -158,10 +158,10 @@ const Gallery = () => {
           
           <div className="container mx-auto px-4 z-10 text-center">
             <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white mb-6">
-              Hamari Royal Creations
+              Our Royal Creations
             </h1>
             <p className="text-xl text-cream/90 max-w-3xl mx-auto">
-              Hamare shandaar interior projects ka portfolio dekhen jo luxury, quality aur behtareen design ke prati hamari pratibaddhta dikhate hain.
+              Explore our portfolio of exquisite interior projects that showcase our commitment to luxury, quality, and exceptional design.
             </p>
           </div>
         </section>
@@ -233,7 +233,7 @@ const Gallery = () => {
                   onClick={() => setShowAll(true)}
                   className="px-8 py-3 bg-olive text-white rounded-md hover:bg-olive-dark transition-colors"
                 >
-                  Saari {activeCategory === 'All' ? 'images' : `${activeCategory} images`} dekhen
+                  View All {activeCategory === 'All' ? 'Images' : `${activeCategory} Images`}
                 </button>
               </div>
             )}
@@ -243,14 +243,14 @@ const Gallery = () => {
         <section className="bg-gradient-to-r from-olive to-olive-dark text-white py-20">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-playfair font-medium mb-6">
-              Hamara kaam pasand aaya? To apni jagah ko shandaar banayein!
+              Love our work? Let's transform your space!
             </h2>
             <p className="text-lg text-cream/90 max-w-2xl mx-auto mb-8">
-              Apne project par baat karne aur personalized quotation paane ke liye aaj hi humse sampark karen. 
-              Hamari team aapke sapne ko haqeeqat banane ke liye taiyar hai.
+              Contact us today to discuss your project and receive a personalized quotation. 
+              Our team is ready to turn your dreams into reality.
             </p>
             <Link to="/contact" className="btn-secondary bg-white hover:bg-cream text-olive inline-flex">
-              Quotation paayein
+              Get a Quote
             </Link>
           </div>
         </section>
