@@ -15,23 +15,23 @@ const categoryImages = {
     { id: 'Majestic Door-5', image: '/images/Furniture-doors/IMG_8293.JPG', title: 'Designer Door' },
     { id: 'Majestic Door-6', image: '/images/Furniture-doors/IMG_8294.JPG', title: 'Designer Door' }
   ],
-  'Furniture consoles': [
+  'Prestige Consoles': [
     // Furniture-consoles
-    { id: 'Furniture consoles-1', image: '/images/Furniture-consoles/IMG_8386.JPG', title: 'Console' },
-    { id: 'Furniture consoles-2', image: '/images/Furniture-consoles/IMG_8387.JPG', title: 'Console' },
-    { id: 'Furniture consoles-3', image: '/images/Furniture-consoles/IMG_8388.JPG', title: 'Console' },
-    { id: 'Furniture consoles-4', image: '/images/Furniture-consoles/IMG_8389.JPG', title: 'Console' },
-    { id: 'Furniture consoles-5', image: '/images/Furniture-consoles/IMG_8390.JPG', title: 'Console' },
-    { id: 'Furniture consoles-6', image: '/images/Furniture-consoles/IMG_8396.JPG', title: 'Console' }
+    { id: 'Prestige Consoles-1', image: '/images/Furniture-consoles/IMG_8386.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-2', image: '/images/Furniture-consoles/IMG_8387.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-3', image: '/images/Furniture-consoles/IMG_8388.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-4', image: '/images/Furniture-consoles/IMG_8389.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-5', image: '/images/Furniture-consoles/IMG_8390.JPG', title: 'Console' },
+    { id: 'Prestige Consoles-6', image: '/images/Furniture-consoles/IMG_8396.JPG', title: 'Console' }
   ],
-  'Aura Sofas': [
+  'Aurora Sofas': [
     // Furniture-sofas
-    { id: 'Aura Sofas-1', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-2', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42 4.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-3', image: '/images/Furniture-sofas/IMG_8385.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-4', image: '/images/Furniture-sofas/IMG_8383.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-5', image: '/images/Furniture-sofas/IMG_8382.JPG', title: 'Sofa' },
-    { id: 'Aura Sofas-6', image: '/images/Furniture-sofas/IMG_8377.JPG', title: 'Sofa' }
+    { id: 'Aurora Sofas-1', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-2', image: '/images/Furniture-sofas/PHOTO-2025-04-17-15-38-42 4.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-3', image: '/images/Furniture-sofas/IMG_8385.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-4', image: '/images/Furniture-sofas/IMG_8383.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-5', image: '/images/Furniture-sofas/IMG_8382.JPG', title: 'Sofa' },
+    { id: 'Aurora Sofas-6', image: '/images/Furniture-sofas/IMG_8377.JPG', title: 'Sofa' }
   ],
   'Divine Kitchens': [
     // Furniture-kitchen
@@ -93,8 +93,8 @@ const categories = [
   'Wallpapers',
   'Majestic Door',
   'Carpets',
-  'Furniture consoles',
-  'Aura Sofas',
+  'Prestige Consoles',
+  'Aurora Sofas',
   'Dinnerware',
   'Divine Kitchens',
   'Wooden',

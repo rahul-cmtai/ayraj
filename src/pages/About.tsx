@@ -159,7 +159,7 @@ export default function AboutUs() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=600&auto=format&fit=crop"
+                src="/images/about/2.jpg"
                 alt="Luxury Interior Craftsmanship"
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />
@@ -203,7 +203,7 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop"
+                src="/images/about/1.jpg"
                 alt="Turnkey Construction"
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

@@ -1,47 +1,47 @@
 import React, { useState } from 'react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '@/config/firebase';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import StickyChat from '@/components/StickyChat';
 import { Badge } from "@/components/ui/badge";
+import axios from 'axios';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const API_BASE_URL = 'https://ayraj-backend.vercel.app/api';
+  const CONTACTS_ENDPOINT = `${API_BASE_URL}/contacts`;
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
     
     try {
-      await addDoc(collection(db, 'contacts'), {
-        ...formData,
-        timestamp: serverTimestamp()
-      });
-      setSuccess(true);
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (err) {
-      setError('Failed to send message. Please try again.');
+      const formData = new FormData(e.currentTarget);
+      const formValues = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        message: formData.get('message'),
+        timestamp: new Date().toISOString()
+      };
+
+      const response = await axios.post(CONTACTS_ENDPOINT, formValues);
+
+      if (response.data.success) {
+        setSuccess(true);
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setError(response.data.message || 'Failed to send message. Please try again.');
+      }
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Failed to send message. Please try again.');
       console.error('Error submitting form:', err);
     }
     
     setLoading(false);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
   };
 
   return (
@@ -158,8 +158,6 @@ const Contact = () => {
                         <input
                           type="text"
                           name="name"
-                          value={formData.name}
-                          onChange={handleChange}
                           className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent"
                           required
                         />
@@ -169,8 +167,6 @@ const Contact = () => {
                         <input
                           type="email"
                           name="email"
-                          value={formData.email}
-                          onChange={handleChange}
                           className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent"
                           required
                         />
@@ -182,8 +178,6 @@ const Contact = () => {
                       <input
                         type="tel"
                         name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
                         className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent"
                         required
                       />
@@ -193,8 +187,6 @@ const Contact = () => {
                       <label className="block text-gray-700 mb-2 font-medium">Message</label>
                       <textarea
                         name="message"
-                        value={formData.message}
-                        onChange={handleChange}
                         rows={5}
                         className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-transparent"
                         required
