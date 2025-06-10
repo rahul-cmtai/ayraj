@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import Navigation from "@/components/Navigation"
+// import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import axios from "axios"
 
@@ -532,7 +532,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-      <Navigation />
+      {/* <Navigation /> */}
 
       <div className="container mx-auto px-4 py-8 pt-20 md:pt-24">
         <div className="flex justify-between items-center mb-8">
